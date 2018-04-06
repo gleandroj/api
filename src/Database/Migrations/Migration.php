@@ -7,6 +7,8 @@
  */
 namespace Gleandroj\Api\Database\Migrations;
 
+use Illuminate\Database\Migrations\Migration as LaravelMigration;
+
 abstract class Migration extends LaravelMigration
 {
     public abstract function up();
