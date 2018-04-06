@@ -10,12 +10,9 @@
         }
     ],
     "require": {},
-    "replace": {
-        "gleandroj/api/support": "self.version"
-    },
     "autoload": {
         "psr-4": {
-            "gleandroj\\Api\\": "src/"
+            "Gleandroj\\Api\\": "src/"
         }
     }
 }
