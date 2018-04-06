@@ -28,7 +28,6 @@ class CreateSeederTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('public.seeders');
+        Schema::dropIfExists(\Gleandroj\Api\Database\Seeds\Seeder::$table);
     }
-
 }
