@@ -1,0 +1,21 @@
+{
+    "name": "gleandroj/api",
+    "description": "API Package",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gabriel Siqueira",
+            "email": "gabrielleandrojunior@live.com"
+        }
+    ],
+    "require": {},
+    "replace": {
+        "gleandroj/api/support": "self.version"
+    },
+    "autoload": {
+        "psr-4": {
+            "gleandroj\\Api\\": "src/"
+        }
+    }
+}
