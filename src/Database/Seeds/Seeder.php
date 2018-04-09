@@ -74,7 +74,7 @@ abstract class Seeder extends \Illuminate\Database\Seeder
     {
         $schema = $this->getConnection()->getSchemaBuilder();
 
-        return $schema->hasTable(static::table);
+        return $schema->hasTable(static::$table);
     }
 
     /**
@@ -86,7 +86,7 @@ abstract class Seeder extends \Illuminate\Database\Seeder
     {
         $schema = $this->getConnection()->getSchemaBuilder();
 
-        $schema->create(static::table, function ($table) {
+        $schema->create(static::$table, function ($table) {
             $table->increments('id');
             $table->string('seeder');
             $table->string('environment');
@@ -135,7 +135,7 @@ abstract class Seeder extends \Illuminate\Database\Seeder
      */
     protected function table()
     {
-        return $this->getConnection()->table(static::table)->useWritePdo();
+        return $this->getConnection()->table(static::$table)->useWritePdo();
     }
 
     /**
@@ -155,9 +155,9 @@ abstract class Seeder extends \Illuminate\Database\Seeder
      */
     public function getConnection()
     {
-        return static::connection ?
-                $this->getConnectionResolver()->connection(static::connection)
-                : $this->getConnectionResolver()->getDefaultConnection();
+        return static::$connection ?
+                $this->getConnectionResolver()->connection(static::$connection)
+                : $this->getConnectionResolver()->connection($this->getConnectionResolver()->getDefaultConnection());
     }
 
     /**
