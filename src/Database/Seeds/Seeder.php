@@ -155,7 +155,7 @@ abstract class Seeder extends \Illuminate\Database\Seeder
      */
     public function getConnection()
     {
-        return $this->connection ? 
+        return $self::connection ? 
                 $this->getConnectionResolver()->connection($self::connection)
                 : $this->getConnectionResolver()->getDefaultConnection();
     }
