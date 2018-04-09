@@ -38,8 +38,6 @@ abstract class Seeder extends \Illuminate\Database\Seeder
      */
     public function __invoke()
     {
-        $this->resolver = app()->make(Resolver::class);
-
         if ($this->canExecute() && !$this->wasExecuted($this->getSeederName(), $this->getAppEnv())) {
             $this->insertOrUpdateSeed($this->getSeederName());
             return parent::__invoke();
