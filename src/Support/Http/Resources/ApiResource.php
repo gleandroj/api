@@ -5,9 +5,11 @@
  * Date: 12/01/2018
  * Time: 14:46
  */
+
 namespace Gleandroj\Api\Support\Http\Resources;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Resources\Json\Resource;
 
 class ApiResource extends Resource
@@ -40,7 +42,8 @@ class ApiResource extends Resource
      */
     public function formatCarbonDate(Carbon $carbon)
     {
-        return $carbon->format(Model::DATE_FORMAT);
+        return $this->resource instanceof Model && !empty($this->resource::DATE_FORMAT) ? $carbon->format($this->resource::DATE_FORMAT) :
+            $carbon->toDateTimeString();
     }
 
     /**
