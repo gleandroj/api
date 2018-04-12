@@ -7,7 +7,6 @@
  */
 namespace Gleandroj\Api\Support\Http\Resources;
 
-use Gleandroj\Core\Domains\Core\Models\Model;
 use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\Resource;
 
