@@ -111,7 +111,7 @@ abstract class Seeder extends \Illuminate\Database\Seeder
 
             return $this->table()->where('id', '=', $seed->id)->update((array)$seed);
 
-        } else {
+        } else if ($seeder != 'DatabaseSeeder') {
             return $this->table()->insert([
                 "seeder" => $seeder,
                 "environment" => json_encode([$this->getAppEnv()]),
@@ -156,8 +156,8 @@ abstract class Seeder extends \Illuminate\Database\Seeder
     public function getConnection()
     {
         return static::$connection ?
-                $this->getConnectionResolver()->connection(static::$connection)
-                : $this->getConnectionResolver()->connection($this->getConnectionResolver()->getDefaultConnection());
+            $this->getConnectionResolver()->connection(static::$connection)
+            : $this->getConnectionResolver()->connection($this->getConnectionResolver()->getDefaultConnection());
     }
 
     /**
